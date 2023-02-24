@@ -1,10 +1,15 @@
 import { useState } from 'react';
-import './App.css';
+import CustomForm from './components/CustomForm';
 
 function App() {
+  const [count, setCount] = useState(0);
+
   return (
-    <div className="App">
-      <h1>hello fifa</h1>
+    <div className="container">
+      <header>
+        <h1>GameStop Wishlist</h1>
+      </header>
+      <CustomForm />
     </div>
   );
 }
