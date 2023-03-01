@@ -7,7 +7,15 @@ const CustomForm = () => {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    addItem({ name: item, id: Date.now() });
+    // addItem({ title: item, id: Date.now() });
+    addItem({
+      title: 'Fifa23',
+      price: 27.99,
+      condition: 'new',
+      imgUrl: 'https://media.gamestop.com/i/gamestop/11206861-11206860?$pdp2x$',
+      link: ' https://www.gamestop.com/search/?q=devil%20may%20cry&type=Primary&sort=BestMatch_Desc&p=1fif',
+      id: Date.now(),
+    });
     setItem('');
   };
 
@@ -32,6 +40,7 @@ const CustomForm = () => {
             onInput={(e) => setItem(e.target.value)}
             required
             autoFocus
+            autoComplete="off"
             maxLength={60}
             placeholder="Enter Task"
           />
@@ -39,7 +48,12 @@ const CustomForm = () => {
             Copy Link
           </label>
         </div>
-        <button className="btn" aria-label="Add Task" type="submit">
+        <button
+          className="btn"
+          // aria-label="Add Task"
+          type="submit"
+          title="Add Task"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
