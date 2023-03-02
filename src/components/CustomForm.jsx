@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useState } from 'react';
 import ItemList from './ItemList';
 
@@ -16,6 +17,19 @@ const CustomForm = () => {
       link: ' https://www.gamestop.com/search/?q=devil%20may%20cry&type=Primary&sort=BestMatch_Desc&p=1fif',
       id: Date.now(),
     });
+
+    axios
+      .get('/user', {
+        firstName: 'Fred',
+        lastName: 'Flintstone',
+      })
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+
     setItem('');
   };
 

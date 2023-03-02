@@ -8,10 +8,15 @@ const Item = ({ item, deleteItem }) => {
     <li className={styles.task}>
       {/* <div className={styles['task-group']}>{item.name}</div> */}
       <div className={styles['task-group']}>
-        <a href={item.link}>Title: {item.title}</a>
-        <img src={item.imgUrl} style={{ width: 100 }} />
-        <div>Condition: {item.condition}</div>Price: ${item.price}
-        <div></div>
+        <div className={styles.titleImg}>
+          <a href={item.link}>{item.title} Playstation 5</a>
+          <img src={item.imgUrl} style={{ width: 100 }} />
+        </div>
+        <div className={styles.addConPrice}>
+          <div>Condition: {item.condition}</div>
+          <div>Price: ${item.price}</div>
+          <div className={styles.footer}>Added On: 3/1/2023</div>
+        </div>
       </div>
       <div className={styles['task-group']}>
         <button
