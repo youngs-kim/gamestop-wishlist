@@ -45,5 +45,4 @@ def fetch_price(url):
 # Testing
 # s = fetch_price(url)
 # s = fetch_price(url2)
-s = fetch_price(url3)
-print(s)
+# s = fetch_price(url3)
