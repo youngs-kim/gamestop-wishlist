@@ -7,6 +7,24 @@
   border: 0.2em solid hsl(var(--muted) / 0.8);
   padding: 0.6em;
   border-radius: calc(var(--_radius) * 2);
+  margin-top: 20px;
+}
+.titleImg {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.addConPrice {
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.footer {
+  margin-top: 1rem;
+  font-style: italic;
+  font-size: 10px;
 }
 
 .task-group {
@@ -23,7 +41,7 @@
   line-height: 1.4;
 }
 
-.checkbox {
+/* .checkbox {
   flex-shrink: 0;
   appearance: none;
   border-radius: var(--_radius);
@@ -39,14 +57,14 @@
 
 .checkbox:focus {
   outline: none;
-}
+} */
 
-.checkbox:is(:focus-visible, :hover) {
+/* .checkbox:is(:focus-visible, :hover) {
   box-shadow: 0 0 0 hsl(var(--bg)), 0 0 0 0.05em hsl(var(--accent)),
     0 0 0 0.225em hsl(var(--accent) / 0.3);
-}
+} */
 
-.checkmark {
+/* .checkmark {
   content: '';
   position: absolute;
   width: 1em;
@@ -71,7 +89,7 @@
 
 .checkbox:checked + label {
   text-decoration: line-through;
-}
+} */
 
 .delete {
   --accent: var(--accent1);
