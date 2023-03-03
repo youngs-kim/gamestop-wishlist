@@ -3,7 +3,7 @@ import styles from './item.module.css';
 import { TrashIcon } from '@heroicons/react/24/outline';
 
 const Item = ({ item, deleteItem }) => {
-  console.log(item);
+  // console.log(item);
   return (
     <li className={styles.task}>
       {/* <div className={styles['task-group']}>{item.name}</div> */}

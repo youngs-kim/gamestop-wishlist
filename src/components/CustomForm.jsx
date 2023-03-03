@@ -6,25 +6,36 @@ const CustomForm = () => {
   const [itemList, setItemList] = useState([]);
   const [item, setItem] = useState('');
 
+  const url = 'http://localhost:5000/gamestop';
+
   const handleFormSubmit = (e) => {
     e.preventDefault();
     // addItem({ title: item, id: Date.now() });
-    addItem({
-      title: 'Fifa23',
-      price: 27.99,
-      condition: 'new',
-      imgUrl: 'https://media.gamestop.com/i/gamestop/11206861-11206860?$pdp2x$',
-      link: ' https://www.gamestop.com/search/?q=devil%20may%20cry&type=Primary&sort=BestMatch_Desc&p=1fif',
-      id: Date.now(),
-    });
+    // addItem({
+    //   title: 'Fifa23',
+    //   price: 27.99,
+    //   condition: 'new',
+    //   imgUrl: 'https://media.gamestop.com/i/gamestop/11206861-11206860?$pdp2x$',
+    //   link: ' https://www.gamestop.com/search/?q=devil%20may%20cry&type=Primary&sort=BestMatch_Desc&p=1fif',
+    //   id: Date.now(),
+    // });
+
+    // To backend - http://localhost:5000/gamestop?url=https:%2F%2Fwww.gamestop.com%2Fvideo-games%2Fproducts%2Ffifa-22---nint
 
     axios
-      .get('/user', {
-        firstName: 'Fred',
-        lastName: 'Flintstone',
+      .get(url, {
+        params: { url: item }
       })
       .then(function (response) {
-        console.log(response);
+        // console.log(response.data);
+        addItem({
+          title: response.data.title,
+          price: response.data.price,
+          condition: response.data.condition,
+          imgUrl: response.data.image_link,
+          link: response.data.url,
+          id: Date.now(),
+        });
       })
       .catch(function (error) {
         console.log(error);
@@ -35,7 +46,7 @@ const CustomForm = () => {
 
   const addItem = (item) => {
     setItemList((prevItem) => [item, ...prevItem]);
-    console.log(itemList);
+    // console.log(itemList);
   };
 
   const deleteItem = (id) => {
@@ -55,7 +66,6 @@ const CustomForm = () => {
             required
             autoFocus
             autoComplete="off"
-            maxLength={60}
             placeholder="Enter Task"
           />
           <label htmlFor="task" className="label">
