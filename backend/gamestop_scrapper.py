@@ -38,11 +38,18 @@ def fetch_price(url):
         condition = driver.find_element(By.XPATH, condition_xpath).text
     else:
         condition = ''
+
+    name_xpath = '/html/body/div[6]/div[6]/div[2]/div[1]/div/div[2]/div[2]/div[1]/div[2]/h2'
+    if driver.find_element(By.XPATH, name_xpath):
+        name = driver.find_element(By.XPATH, name_xpath).text
+    else:
+        name = ''
     
     driver.quit()
-    return {'price': price, 'image_link': image_src, 'condition': condition}
+    return {'price': price, 'image_link': image_src, 'condition': condition, 'url': url, 'title': name}
 
 # Testing
 # s = fetch_price(url)
 # s = fetch_price(url2)
 # s = fetch_price(url3)
+# print(s)
