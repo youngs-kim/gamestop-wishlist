@@ -14,7 +14,7 @@ const CustomForm = () => {
       price: 27.99,
       condition: 'new',
       imgUrl: 'https://media.gamestop.com/i/gamestop/11206861-11206860?$pdp2x$',
-      link: ' https://www.gamestop.com/search/?q=devil%20may%20cry&type=Primary&sort=BestMatch_Desc&p=1fif',
+      link: 'https://www.gamestop.com/search/?q=devil%20may%20cry&type=Primary&sort=BestMatch_Desc&p=1fif',
       id: Date.now(),
     });
 
