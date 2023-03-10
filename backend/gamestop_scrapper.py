@@ -8,6 +8,11 @@ url = "https://www.gamestop.com/video-games/nintendo-switch/products/metroid-pri
 url2 = "https://www.gamestop.com/video-games/playstation-5/products/the-last-of-us-part-1----playstation-5/11206959-11206959.html?condition=Pre-Owned"
 url3 = "https://www.gamestop.com/video-games/playstation-5/products/nba-2k23---playstation-5/11206859-11206849.html?condition=Pre-Owned"
 
+def find_condition(url):
+    """Find condition within URL"""
+    condition_index = url.rfind('condition=')
+    return url[condition_index+10:]
+
 def fetch_price(url):
     chrome_options = Options()
     chrome_options.headless = True
@@ -22,22 +27,20 @@ def fetch_price(url):
 
     driver.get(url)
 
-    if driver.find_elements(By.XPATH, '/html/body/div[6]/div[6]/div[2]/div[1]/div/div[2]/div[2]/div[3]/div[2]/div/div/span/span/span[1]'):
-        price = driver.find_element(By.XPATH, '/html/body/div[6]/div[6]/div[2]/div[1]/div/div[2]/div[2]/div[3]/div[2]/div/div/span/span/span[1]').text
+    price_xpath = '/html/body/div[6]/div[6]/div[2]/div[1]/div/div[2]/div[2]/div[3]/div[2]/div/div/span/span/span[1]'
+    if driver.find_elements(By.XPATH, price_xpath):
+        price = driver.find_element(By.XPATH, price_xpath).text
     else:
         price = -1
 
-    image_xpath = '//*[@id="0"]'
+    image_xpath = '/html/body/div[6]/div[6]/div[2]/div[1]/div/div[2]/div[1]/div/div[2]/div[2]/div/div[3]/img'
     if driver.find_element(By.XPATH, image_xpath):
-        image_src = driver.find_elements(By.XPATH, image_xpath)[1].get_attribute('src')
+        image_src = driver.find_elements(By.XPATH, image_xpath)[0].get_attribute('src')
     else:
         image_src = 'No picture'
 
-    condition_xpath = '/html/body/div[6]/div[6]/div[2]/div[1]/div/div[2]/div[2]/div[3]/div[7]/div[3]/div/label/span[2]'
-    if driver.find_element(By.XPATH, condition_xpath):
-        condition = driver.find_element(By.XPATH, condition_xpath).text
-    else:
-        condition = ''
+    condition = find_condition(url)
+    print(condition)
 
     name_xpath = '/html/body/div[6]/div[6]/div[2]/div[1]/div/div[2]/div[2]/div[1]/div[2]/h2'
     if driver.find_element(By.XPATH, name_xpath):
@@ -47,9 +50,3 @@ def fetch_price(url):
     
     driver.quit()
     return {'price': price, 'image_link': image_src, 'condition': condition, 'url': url, 'title': name}
-
-# Testing
-# s = fetch_price(url)
-# s = fetch_price(url2)
-# s = fetch_price(url3)
-# print(s)
