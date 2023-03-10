@@ -6,7 +6,7 @@ const CustomForm = () => {
   const [itemList, setItemList] = useState([]);
   const [item, setItem] = useState('');
 
-  const url = 'http://localhost:5000/gamestop';
+  const url = 'http://127.0.0.1:5000/gamestop';
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
@@ -24,7 +24,7 @@ const CustomForm = () => {
 
     axios
       .get(url, {
-        params: { url: item }
+        params: { url: item },
       })
       .then(function (response) {
         // console.log(response.data);

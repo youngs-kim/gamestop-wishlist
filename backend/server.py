@@ -13,6 +13,13 @@ def get_info():
     info_final.headers.add('Access-Control-Allow-Origin', '*')
     return info_final
 
+# http://127.0.0.1:5000/test
+
+@app.route('/test', methods=['GET'])
+def hello():
+    print('hello world')
+    return 'hello world'
+
 
 if __name__ == "__main__":
     app.run(debug=True)
