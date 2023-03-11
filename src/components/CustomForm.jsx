@@ -24,7 +24,7 @@ const CustomForm = () => {
 
     axios
       .get(url, {
-        params: { url: item }
+        params: { url: item },
       })
       .then(function (response) {
         // console.log(response.data);
