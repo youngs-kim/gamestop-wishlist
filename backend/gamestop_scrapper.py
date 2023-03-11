@@ -28,23 +28,23 @@ def fetch_price(url):
     driver.get(url)
 
     price_xpath = '/html/body/div[6]/div[6]/div[2]/div[1]/div/div[2]/div[2]/div[3]/div[2]/div/div/span/span/span[1]'
-    if driver.find_elements(By.XPATH, price_xpath):
-        price = driver.find_element(By.XPATH, price_xpath).text
+    if len(driver.find_elements(By.XPATH, price_xpath)) > 0:
+        price = driver.find_elements(By.XPATH, price_xpath)[0].text
     else:
-        price = -1
+        price = 0
 
     image_xpath = '/html/body/div[6]/div[6]/div[2]/div[1]/div/div[2]/div[1]/div/div[2]/div[2]/div/div[3]/img'
-    if driver.find_element(By.XPATH, image_xpath):
+    if len(driver.find_elements(By.XPATH, image_xpath)) > 0:
         image_src = driver.find_elements(By.XPATH, image_xpath)[0].get_attribute('src')
     else:
-        image_src = 'No picture'
+        image_src = 'https://media.istockphoto.com/id/1022028010/vector/image-unavailable-icon.jpg?s=612x612&w=0&k=20&c=7z3_vAq-RERxMXpVlouWRxswJINNlOgwkBZKlTCzMHg='
 
     condition = find_condition(url)
     print(condition)
 
     name_xpath = '/html/body/div[6]/div[6]/div[2]/div[1]/div/div[2]/div[2]/div[1]/div[2]/h2'
-    if driver.find_element(By.XPATH, name_xpath):
-        name = driver.find_element(By.XPATH, name_xpath).text
+    if len(driver.find_elements(By.XPATH, name_xpath)) > 0:
+        name = driver.find_elements(By.XPATH, name_xpath)[0].text
     else:
         name = ''
     

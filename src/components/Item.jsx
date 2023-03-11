@@ -3,22 +3,22 @@ import styles from './item.module.css';
 import { TrashIcon } from '@heroicons/react/24/outline';
 
 const Item = ({ item, deleteItem }) => {
-  // console.log(item);
   return (
     <li className={styles.task}>
-      {/* <div className={styles['task-group']}>{item.name}</div> */}
-      <div className={styles['task-group']}>
+      <div className={styles.taskGroup}>
         <div className={styles.titleImg}>
-          <a href={item.link}>{item.title}</a>
-          <img src={item.imgUrl} style={{ width: 100 }} />
+          <div className={styles.gameImgDiv}>
+            <img src={item.imgUrl} style={{ width: 150 }} />
+          </div>
+          <a href={item.link} style={{ fontSize: 20 }}>{item.title}</a>
         </div>
         <div className={styles.addConPrice}>
           <div>Condition: {item.condition}</div>
           <div>Price: {item.price}</div>
-          <div className={styles.footer}>Added On: 3/1/2023</div>
+          <div className={styles.footer}>Added On: {item.date}</div>
         </div>
       </div>
-      <div className={styles['task-group']}>
+      <div className={styles.taskButton}>
         <button
           className={`btn ${styles.delete}`}
           onClick={() => deleteItem(item.id)}

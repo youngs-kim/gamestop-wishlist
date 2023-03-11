@@ -35,6 +35,7 @@ const CustomForm = () => {
           imgUrl: response.data.image_link,
           link: response.data.url,
           id: Date.now(),
+          date: new Date().toISOString().replace('-', '/').split('T')[0].replace('-', '/')
         });
       })
       .catch(function (error) {
