@@ -22,7 +22,3 @@ def get_info():
 def hello():
     print('hello world')
     return 'hello world'
-
-
-if __name__ == "__main__":
-    app.run(debug=True)
