@@ -6,6 +6,7 @@ from gamestop_scrapper import fetch_price
 
 app = Flask(__name__)
 CORS(app)
+ENV = 'prod'
 
 @app.route('/gamestop', methods=['GET'])
 @cross_origin()
