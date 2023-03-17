@@ -1,6 +1,6 @@
-# gamestop-wishlist
+# Gamestop Wishlist
 
-Personal Wishlist to save the games you want to purchase in future!
+Personal wishlist to save the games you want to purchase in future!
 
 Step 1 : Go to the link of the game you wish to add
 
